@@ -59,6 +59,7 @@ ComposeTweet <- function(tweet.date = Sys.Date()){
 
   if(sched[, .N] > 0){
     tweet <- sched[, paste(desc, url)]
+    return(tweet)
   } else {
     return(NULL)
   }
@@ -70,6 +71,8 @@ PostTweet <-function(tweet.date = Sys.Date()){
   if(is.null(tweet.text)){
     return(FALSE)
   } else {
+
+    options(httr_oauth_cache=T)
     setup_twitter_oauth(consumer_key = kCreds$consumer_key,
                         consumer_secret = kCreds$consumer_secret,
                         access_token = kCreds$access_token,
