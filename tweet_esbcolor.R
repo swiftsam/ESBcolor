@@ -103,10 +103,10 @@ ComposeTweet <- function(tweet.date = Sys.Date()){
       tweet <- paste(tweet, day[, hashtag])
     }
 
-    # add the url (which will be shortened to 22 chars) if we have room
-    if(str_length(tweet) + 22 <= 140){
-      tweet <- paste(tweet, day[, url])
-    }
+    # # add the url (which will be shortened to 22 chars) if we have room
+    # if(str_length(tweet) + 22 <= 140){
+    #   tweet <- paste(tweet, day[, url])
+    # }
     return(tweet)
   } else {
     return(NULL)
