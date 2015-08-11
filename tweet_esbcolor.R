@@ -53,7 +53,8 @@ GetColorSchedule <- function(cache.expire.hrs = 12,
 
     inds <- c(str_locate(desc, "in honor of")[2],
               str_locate(str_to_lower(desc), "anniversary of")[2],
-              str_locate(desc, "in celebration of")[2])
+              str_locate(desc, "in celebration of")[2],
+              str_locate(desc, "to raise awareness for")[2])
 
     if(length(na.omit(inds))) {
       ind.start <- max(na.omit(inds)) + 1
@@ -82,6 +83,7 @@ GetColorSchedule <- function(cache.expire.hrs = 12,
   }
 
   sched[, hashtag := HashTagDesc(desc), by=event_date]
+  sched[is.na(hashtag), hashtag := ""]
 
   setkey(sched, event_date)
   # save to cachefile
