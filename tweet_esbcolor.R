@@ -76,6 +76,7 @@ GetColorSchedule <- function(cache.expire.hrs = 12,
     event <- str_replace_all(event, "the ", "")
     event <- str_replace_all(event, "The ", "")
     event <- str_replace_all(event, "its ", "")
+    event <- str_replace_all(event, "Campaign", "")
     event <- str_replace_all(event, "[[:punct:]]", "")
     event <- str_trim(event)
     event <- str_split(event, "and")
