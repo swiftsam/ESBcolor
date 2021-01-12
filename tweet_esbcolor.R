@@ -4,7 +4,6 @@ library(magrittr)
 library(twitteR)
 library(stringr)
 library(purrr)
-library(readr)
 
 page <- read_html("http://www.esbnyc.com/explore/tower-lights/calendar")
 
@@ -46,7 +45,11 @@ if(!file.exists(log_file_name)){
       response <- tweet_safely()
 
       if(is.null(response$error)) {
-        write_lines(tweet_text, log_file_name)
+
+        file_con <- file(log_file_name)
+        writeLines(tweet_text, file_con)
+        close(file_con)
+
       } else {
         message(response$error)
       }
