@@ -30,7 +30,7 @@ if(!file.exists(log_file_name)){
         tweet_color  <- colors %>% str_to_lower %>% str_remove(" color") %>% str_to_sentence()
         tweet_reason <- reason
 
-        tweet_text   <- paste0(tweet_color, "\n\n", tweet_text)
+        tweet_text   <- paste0(tweet_color, "\n\n", tweet_reason)
 
         creds <- read_yaml("ESBcolor.yaml")$esbcolor
         options(httr_oauth_cache=T)
