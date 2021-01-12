@@ -2,5 +2,4 @@
 .Rhistory
 .RData
 .httr-oauth
-esb.yml
-esb_sched.RData
+ESBcolor.yaml
