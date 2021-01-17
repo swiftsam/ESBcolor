@@ -20,6 +20,7 @@ reason <- page %>%
   html_text()
 
 log_file_name <- file.path("tweets", paste0(format(Sys.Date(), "%Y%m%d"),".txt"))
+tweet_text    <- ""
 
 if(!file.exists(log_file_name)){
   if(str_starts(color_date, "Today,")) {
