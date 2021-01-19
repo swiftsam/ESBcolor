@@ -20,7 +20,6 @@ reason <- page %>%
   html_text()
 
 log_file_name <- file.path("tweets", paste0(format(Sys.Date(), "%Y%m%d"),".txt"))
-tweet_text    <- ""
 
 if(!file.exists(log_file_name)){
   if(str_starts(color_date, "Today,")) {
@@ -48,7 +47,7 @@ if(!file.exists(log_file_name)){
       if(is.null(response$error)) {
 
         file_con <- file(log_file_name)
-        writeLines(tweet_text, file_con)
+        writeLines(response$result$text, file_con)
         close(file_con)
 
       } else {
