@@ -5,7 +5,7 @@ library(twitteR)
 library(stringr)
 library(purrr)
 
-page <- read_html("http://www.esbnyc.com/explore/tower-lights/calendar")
+page <- read_html("https://www.esbnyc.com/about/tower-lights")
 
 color_date <- page %>%
   html_node("div.today div.info h2") %>%
